@@ -1,0 +1,31 @@
+{
+  "Id": "编号",
+  "Image Url":"图片路径",
+  "Image url":"图片路径",
+  "Href Url":"外链",
+  "Sort num":"排序",
+  "On sale":"是否显示",
+  "Name":"分类名",
+  "Title":"商品名称",
+  "Commission rate":"佣金比率",
+  "Discounted price":"折后价格",
+  "Price":"价格",
+  "Favourable price":"优惠卷价格",
+  "Vermicelli consumption":"要求粉丝量",
+  "Sample quantity":"样品数量",
+  "Support dou":"支持DOU+",
+  "Support directional":"支持定向",
+  "Copy link":"复制链接",
+  "Activity countdown":"活动倒计时",
+  "Name zh":"中文名",
+  "Name en":"英文名",
+  "Sort num":"排序",
+  "Type id":"所属类型",
+  "Category id":"所属分类",
+  "Description":"商品详情",
+  "Created at":"创建时间",
+  "Updated at":"更新时间"
+
+
+
+}
