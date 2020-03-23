@@ -14,6 +14,7 @@ class ProductTransformer extends TransformerAbstract
             'description' => $product->description,
             'image_url' => $product->image_url,
             'commission_rate' => $product->commission_rate,
+            'commission' => $product->commission,
             'discounted_price' => $product->discounted_price,
             'price' => $product->price,
             'favourable_price' => $product->favourable_price,

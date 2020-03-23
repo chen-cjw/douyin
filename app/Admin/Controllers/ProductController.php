@@ -41,6 +41,7 @@ class ProductController extends AdminController
         $grid->column('description', __('Description'));
         $grid->column('image_url', __('Image Url'))->image(config('url').'/storage/', 30, 30);
         $grid->column('commission_rate', __('Commission rate'))->sortable();
+        $grid->column('commission', __('Commission'))->sortable();
         $grid->column('discounted_price', __('Discounted price'))->sortable();
         $grid->column('price', __('Price'))->sortable();
         $grid->column('favourable_price', __('Favourable price'))->sortable();
@@ -84,6 +85,7 @@ class ProductController extends AdminController
         $show->field('title', __('Title'));
         $show->field('description', __('Description'));
         $show->field('commission_rate', __('Commission rate'));
+        $show->field('commission', __('Commission'));
         $show->field('discounted_price', __('Discounted price'));
         $show->field('price', __('Price'));
         $show->field('favourable_price', __('Favourable price'));
@@ -114,7 +116,7 @@ class ProductController extends AdminController
         $form->select('type_id',__('Category id'))->options(Category::pluck('name','id'));
         $form->text('title', __('Title'));
         $form->textarea('description', __('Description'));
-        $form->text('commission_rate', __('Commission rate'));
+        $form->decimal('commission_rate', __('Commission rate'));
         $form->image('image_url', __('Image url'));
 
         $form->decimal('discounted_price', __('Discounted price'))->default(0.00);
@@ -129,7 +131,12 @@ class ProductController extends AdminController
 
 //        $form->number('type_id', __('Type id'));
 //        $form->number('category_id', __('Category id'));
-
+        //保存前回调
+        $form->saved(function (Form $form) {
+            $commission_rate = (bcdiv($form->model()->commission_rate,100,2));
+            $commission = bcmul($form->model()->discounted_price,$commission_rate,2);
+            Product::where('id',$form->model()->id)->update(['commission'=>$commission]);
+        });
         return $form;
     }
 }

@@ -18,7 +18,8 @@ class CreateProductsTable extends Migration
             $table->string('title')->comment('商品名称');
             $table->string('image_url')->comment('图片路径');
             $table->text('description')->nullable()->comment('商品详情');
-            $table->string('commission_rate')->default(0)->comment('佣金比率');
+            $table->decimal('commission_rate')->default(0)->comment('佣金比率');
+            $table->decimal('commission')->default(0)->comment('佣金');
             $table->decimal('discounted_price', 10, 2)->default(0)->comment('折后价格');
             $table->decimal('price', 10, 2)->default(0)->comment('价格');
             $table->decimal('favourable_price', 10, 2)->default(0)->comment('优惠卷价格');
