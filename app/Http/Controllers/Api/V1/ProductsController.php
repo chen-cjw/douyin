@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Product;
+use App\Models\Type;
 use App\Transformers\ProductTransformer;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,7 @@ class ProductsController extends Controller
         if($category_id) {
             $product = $product->where('category_id',$category_id);
         }
-        if($type_id) {
+        if(Type::where('on_sale',true)->where('id',$type_id)->exists()) {
             $product = $product->where('type_id',$type_id);
         }
 
