@@ -53,7 +53,7 @@ class TypeController extends AdminController
         $show->field('id', __('Id'));
         $show->field('name_zh', __('Name zh'));
         $show->field('name_en', __('Name en'));
-        $show->field('image_url', __('Image url'));
+        $show->field('image_url', __('Image url'))->image('/');
         $show->field('sort_num', __('Sort num'));
         $show->field('on_sale', __('On sale'));
         $show->field('created_at', __('Created at'));

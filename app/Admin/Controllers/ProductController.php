@@ -38,7 +38,7 @@ class ProductController extends AdminController
         });
 
         $grid->column('title', __('Title'));
-        $grid->column('description', __('Description'));
+        //$grid->column('description', __('Description'));
         $grid->column('image_url', __('Image Url'))->image(config('url').'/storage/', 30, 30);
         $grid->column('commission_rate', __('Commission rate'))->sortable();
         $grid->column('commission', __('Commission'))->sortable();
@@ -83,7 +83,8 @@ class ProductController extends AdminController
 
         $show->field('id', __('Id'));
         $show->field('title', __('Title'));
-        $show->field('description', __('Description'));
+        $show->field('image_url', __('Image url'))->image('/');
+        $show->field('description', __('Description'))->unescape();
         $show->field('commission_rate', __('Commission rate'));
         $show->field('commission', __('Commission'));
         $show->field('discounted_price', __('Discounted price'));
@@ -114,20 +115,20 @@ class ProductController extends AdminController
 
         $form->select('type_id',__('Type id'))->options(Type::pluck('name_zh','id'));
         $form->select('type_id',__('Category id'))->options(Category::pluck('name','id'));
-        $form->text('title', __('Title'));
-        $form->textarea('description', __('Description'));
+        $form->text('title', __('Title'))->rules('required');
+        $form->UEditor('description', __('Description'))->rules('required');
         $form->decimal('commission_rate', __('Commission rate'));
-        $form->image('image_url', __('Image url'));
+        $form->image('image_url', __('Image url'))->rules('required');
 
-        $form->decimal('discounted_price', __('Discounted price'))->default(0.00);
-        $form->decimal('price', __('Price'))->default(0.00);
-        $form->decimal('favourable_price', __('Favourable price'))->default(0.00);
-        $form->decimal('vermicelli_consumption', __('Vermicelli consumption'));
-        $form->decimal('sample_quantity', __('Sample quantity'));
-        $form->switch('support_dou', __('Support dou'))->default(1);
-        $form->switch('support_directional', __('Support directional'))->default(1);
-        $form->text('copy_link', __('Copy link'));
-        $form->date('activity_countdown', __('Activity countdown'))->default(date('H:i:s'));
+        $form->decimal('discounted_price', __('Discounted price'))->default(0.00)->rules('required');
+        $form->decimal('price', __('Price'))->default(0.00)->rules('required');
+        $form->decimal('favourable_price', __('Favourable price'))->default(0.00)->rules('required');
+        $form->decimal('vermicelli_consumption', __('Vermicelli consumption'))->rules('required');
+        $form->decimal('sample_quantity', __('Sample quantity'))->rules('required');
+        $form->switch('support_dou', __('Support dou'))->default(1)->rules('required');
+        $form->switch('support_directional', __('Support directional'))->default(1)->rules('required');
+        $form->text('copy_link', __('Copy link'))->rules('required');
+        $form->date('activity_countdown', __('Activity countdown'))->default(date('H:i:s'))->rules('required');
 
 //        $form->number('type_id', __('Type id'));
 //        $form->number('category_id', __('Category id'));
