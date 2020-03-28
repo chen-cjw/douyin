@@ -11,10 +11,10 @@ class ProductsController extends Controller
 {
     public function index(Product $product,$category_id,$type_id,Request $request)
     {
-        if($category_id) {
+        if($category_id &&  $category_id != 'all') {
             $product = $product->where('category_id',$category_id);
         }
-        if(Type::where('on_sale',true)->where('id',$type_id)->exists()) {
+        if($type_id && $type_id != 'all') {
             $product = $product->where('type_id',$type_id);
         }
 
