@@ -83,7 +83,7 @@ class ProductController extends AdminController
 
         $show->field('id', __('Id'));
         $show->field('title', __('Title'));
-        $show->field('image_url', __('Image url'))->image('/');
+        $show->field('image_url', __('Image url'))->image(config('url').'/storage/');
         $show->field('description', __('Description'))->unescape();
         $show->field('commission_rate', __('Commission rate'));
         $show->field('commission', __('Commission'));

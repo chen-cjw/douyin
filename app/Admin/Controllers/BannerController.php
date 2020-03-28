@@ -51,7 +51,7 @@ class BannerController extends AdminController
         $show = new Show(Banner::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('image_url', __('Image Url'))->image('/');
+        $show->field('image_url', __('Image Url'))->image(config('url').'/storage/');
         $show->field('href_url', __('Href Url'));
         $show->field('sort_num', __('Sort num'));
         $show->field('on_sale', __('On sale'));
