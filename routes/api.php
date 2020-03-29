@@ -23,6 +23,13 @@ $api->version('v1', [
     'middleware' => ['serializer:array']
 ], function ($api) {
 
+    $api->get('/auth','AuthController@index')->name('api.auth.index');
+
+    // 个人信息
+    $api->get('/meShow','AuthController@meShow')->name('api.auth.meShow');
+    // 退出
+    $api->delete('/auth/current', 'AuthController@destroy')->name('api.auth.destroy');
+
     $api->get('/banners', 'BannersController@index'); // 轮播图
     $api->get('/types', 'TypesController@index'); // 类型
     //$api->get('/types/{type_id}/categories', 'TypesController@index'); // 类型下分类
