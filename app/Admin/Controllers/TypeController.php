@@ -29,7 +29,7 @@ class TypeController extends AdminController
         $grid->column('id', __('Id'))->sortable();
         $grid->column('name_zh', __('Name zh'));
         $grid->column('name_en', __('Name en'));
-        $grid->column('image_url', __('Image url'))->image(config('url').'/storage/', 30, 30);
+        $grid->column('image_url', __('Image url'))->image('', 30, 30);
         $grid->column('sort_num', __('Sort num'))->sortable();
         $grid->column('on_sale', __('On sale'))->display(function ($on_sale) {
             return $on_sale ? '是' : '否';
@@ -53,7 +53,7 @@ class TypeController extends AdminController
         $show->field('id', __('Id'));
         $show->field('name_zh', __('Name zh'));
         $show->field('name_en', __('Name en'));
-        $show->field('image_url', __('Image url'))->image(config('url').'/storage/');
+        $show->field('image_url', __('Image url'))->image();
         $show->field('sort_num', __('Sort num'));
         $show->field('on_sale', __('On sale'));
         $show->field('created_at', __('Created at'));

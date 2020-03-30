@@ -26,7 +26,7 @@ class BannerController extends AdminController
     {
         $grid = new Grid(new Banner());
         $grid->column('id', __('Id'))->sortable();
-        $grid->column('image_url', __('Image Url'))->image(config('url').'/storage/', 30, 30);
+        $grid->column('image_url', __('Image Url'))->image('/',30,30);//->image(config('url').'/storage/', 30, 30);
         $grid->column('href_url', __('Href Url'))->display(function ($href_url) {
             return $href_url?:'暂无';
         });
@@ -51,7 +51,7 @@ class BannerController extends AdminController
         $show = new Show(Banner::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('image_url', __('Image Url'))->image(config('url').'/storage/');
+        $show->field('image_url', __('Image Url'))->image();
         $show->field('href_url', __('Href Url'));
         $show->field('sort_num', __('Sort num'));
         $show->field('on_sale', __('On sale'));
