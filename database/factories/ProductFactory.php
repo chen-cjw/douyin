@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(\App\Models\Product::class, function (Faker $faker) {
     return [
-        'title'=>$faker->name,
+        'title'=>$faker->title,
         'image_url'=>'https://goss.veer.com/creative/vcg/veer/800water/veer-153383746.jpg',
         'description'=>$faker->text(200),
         'commission_rate'=>rand(1,10),
@@ -22,6 +22,6 @@ $factory->define(\App\Models\Product::class, function (Faker $faker) {
         'activity_countdown'=>$faker->date('Y-m-d'),
         'on_sale'=>true,
         'type_id'=>rand(1,5),
-        'category_id'=>rand(1,10),
+        'category_id'=>rand(1,5),
     ];
 });
