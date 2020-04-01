@@ -9,7 +9,7 @@ $factory->define(\App\Models\Type::class, function (Faker $faker) {
     return [
         'name_zh'=>$faker->name,
         'name_en'=> 'name_en',
-        'image_url'=>$faker->imageUrl(),
+        'image_url'=>'https://goss.veer.com/creative/vcg/veer/800water/veer-317591227.jpg',
         'sort_num'=>rand(1,100),
         'on_sale'=>true
 

@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(\App\Models\Product::class, function (Faker $faker) {
     return [
         'title'=>$faker->name,
-        'image_url'=>$faker->imageUrl(),
+        'image_url'=>'https://goss.veer.com/creative/vcg/veer/800water/veer-153383746.jpg',
         'description'=>$faker->text(200),
         'commission_rate'=>rand(1,10),
         'discounted_price'=>rand(10,100),
