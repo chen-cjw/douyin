@@ -10,7 +10,7 @@ class BannerTransformer extends TransformerAbstract
     {
         return [
             'id' => $banner->id,
-            'image_url' => config('url').'/storage/'.$banner->image_url,
+            'image_url' => $banner->image_url,
             'href_url' => $banner->href_url,
             'sort_num' => $banner->sort_num,
             'on_sale' => $banner->on_sale,
