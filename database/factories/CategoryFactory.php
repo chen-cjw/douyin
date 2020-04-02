@@ -9,7 +9,7 @@ $factory->define(\App\Models\Category::class, function (Faker $faker) {
     $strs="QWERTYUIOPASDFGHJKLZXCVBNM1234567890qwertyuiopasdfghjklzxcvbnm";
     $name=substr(str_shuffle($strs),mt_rand(0,strlen($strs)-11),10);
     return [
-        'name' => $name,
+        'name' => $faker->unique()->name,
         'sort_num' => rand(1,100),
         'on_sale'=> true
 
