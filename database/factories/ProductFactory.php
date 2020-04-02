@@ -24,6 +24,6 @@ $factory->define(\App\Models\Product::class, function (Faker $faker) {
         'activity_countdown'=>$faker->date('Y-m-d'),
         'on_sale'=>true,
         'type_id'=>rand(1,5),
-        'category_id'=>rand(1,5),
+        'category_id'=>rand(1,10),
     ];
 });
