@@ -6,8 +6,10 @@ use App\Model;
 use Faker\Generator as Faker;
 
 $factory->define(\App\Models\Product::class, function (Faker $faker) {
+    $strs="QWERTYUIOPASDFGHJKLZXCVBNM1234567890qwertyuiopasdfghjklzxcvbnm";
+    $name=substr(str_shuffle($strs),mt_rand(0,strlen($strs)-11),10);
     return [
-        'title'=>md5(uniqid(microtime(true),true)),
+        'title'=>$name,
         'image_url'=>'https://goss.veer.com/creative/vcg/veer/800water/veer-153383746.jpg',
         'description'=>$faker->text(200),
         'commission_rate'=>rand(1,10),
