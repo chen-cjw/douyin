@@ -39,7 +39,7 @@ class ProductController extends AdminController
 
         $grid->column('title', __('Title'));
         //$grid->column('description', __('Description'));
-        $grid->column('image_url', __('Image Url'))->image(config('url').'/storage/', 30, 30);
+        $grid->column('image_url', __('Image url'))->image(config('url').'/storage/', 30, 30);
         $grid->column('commission_rate', __('Commission rate'))->sortable();
         $grid->column('commission', __('Commission'))->sortable();
         $grid->column('discounted_price', __('Discounted price'))->sortable();
@@ -53,6 +53,10 @@ class ProductController extends AdminController
         $grid->column('support_directional', __('Support directional'))->display(function ($support_directional) {
             return $support_directional ? '是' : '否';
         });
+        // on_sale
+        $grid->column('on_sale', __('显示否'))->display(function ($support_directional) {
+            return $support_directional ? '是' : '否';
+        });;
         $grid->column('copy_link', __('Copy link'))->link();
         $grid->column('activity_countdown', __('Activity countdown'));
 
