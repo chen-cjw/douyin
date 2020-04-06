@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8663fd7-7d8b-40d3-8bd8-551d894d0ea5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ProductsController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -66,10 +66,10 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="ProductController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProductController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ProductController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
+            <state relative-caret-position="43">
               <caret line="122" column="42" selection-start-line="122" selection-start-column="42" selection-end-line="122" selection-end-column="42" />
               <folding>
                 <element signature="e#41#65#0#PHP" expanded="true" />
@@ -99,11 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductsController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProductsController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ProductsController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="346">
-              <caret line="45" column="105" selection-start-line="45" selection-start-column="105" selection-end-line="45" selection-end-column="105" />
+              <caret line="45" column="79" selection-start-line="45" selection-start-column="79" selection-end-line="45" selection-end-column="79" />
               <folding>
                 <element signature="e#47#70#0#PHP" expanded="true" />
               </folding>
@@ -202,8 +202,8 @@
         <option value="$PROJECT_DIR$/database/factories/TypeFactory.php" />
         <option value="$PROJECT_DIR$/database/factories/ProductFactory.php" />
         <option value="$PROJECT_DIR$/admin_menu.sql" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ProductsController.php" />
         <option value="$PROJECT_DIR$/app/Admin/Controllers/ProductController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/ProductsController.php" />
       </list>
     </option>
   </component>
@@ -482,12 +482,12 @@
       <option name="presentableId" value="Default" />
       <updated>1584585468166</updated>
       <workItem from="1584585469575" duration="66508000" />
-      <workItem from="1586072141616" duration="1543000" />
+      <workItem from="1586072141616" duration="1667000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68051000" />
+    <option name="totallyTimeSpent" value="68175000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -870,22 +870,22 @@
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/AuthController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ProductsController.php">
+    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ProductController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="45" column="105" selection-start-line="45" selection-start-column="105" selection-end-line="45" selection-end-column="105" />
+        <state relative-caret-position="43">
+          <caret line="122" column="42" selection-start-line="122" selection-start-column="42" selection-end-line="122" selection-end-column="42" />
           <folding>
-            <element signature="e#47#70#0#PHP" expanded="true" />
+            <element signature="e#41#65#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ProductController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/ProductsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="122" column="42" selection-start-line="122" selection-start-column="42" selection-end-line="122" selection-end-column="42" />
+        <state relative-caret-position="346">
+          <caret line="45" column="79" selection-start-line="45" selection-start-column="79" selection-end-line="45" selection-end-column="79" />
           <folding>
-            <element signature="e#41#65#0#PHP" expanded="true" />
+            <element signature="e#47#70#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
