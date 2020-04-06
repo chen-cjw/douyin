@@ -43,7 +43,7 @@ class ProductsController extends Controller
             $product = $product->orderBy('discounted_price', $discountedPrice);
         }
 
-        $products = $product->orderBy('sort_num','desc')->where('on_sale',true)->paginate();
+        $products = $product->orderBy('sort_num','desc')->where('on_sale',true)->where('created_at','desc')->paginate();
         return $this->response->paginator($products, new ProductTransformer());
     }
 
