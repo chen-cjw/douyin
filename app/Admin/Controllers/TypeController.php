@@ -30,7 +30,7 @@ class TypeController extends AdminController
         $grid->column('name_zh', __('Name zh'));
         $grid->column('name_en', __('Name en'));
         $grid->column('image_url', __('Image url'))->image('', 30, 30);
-        $grid->column('sort_num', __('Sort num'))->sortable()->sortable();
+        $grid->column('sort_num', __('Sort num'))->editable()->sortable();
         $grid->column('on_sale', __('On sale'))->display(function ($on_sale) {
             return $on_sale ? '是' : '否';
         });

@@ -30,7 +30,7 @@ class BannerController extends AdminController
         $grid->column('href_url', __('Href Url'))->display(function ($href_url) {
             return $href_url?:'暂无';
         });
-        $grid->column('sort_num', __('Sort num'))->sortable()->sortable();
+        $grid->column('sort_num', __('Sort num'))->editable()->sortable();
         $grid->column('on_sale', __('On sale'))->display(function ($on_sale) {
                 return $on_sale ? '是' : '否';
         });
