@@ -59,6 +59,7 @@ class ProductController extends AdminController
         });;
         $grid->column('copy_link', __('Copy link'))->link();
         $grid->column('activity_countdown', __('Activity countdown'));
+        $grid->column('sort_num', __('Sort num'))->sortable();
 
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
@@ -134,6 +135,7 @@ class ProductController extends AdminController
         $form->text('copy_link', __('Copy link'))->rules('required');
         $form->date('activity_countdown', __('Activity countdown'))->default(date('H:i:s'))->rules('required');
         $form->switch('on_sale', __('On sale'))->default(1);
+        $form->number('sort_num', __('Sort num'))->default(0);
 
 //        $form->number('type_id', __('Type id'));
 //        $form->number('category_id', __('Category id'));
