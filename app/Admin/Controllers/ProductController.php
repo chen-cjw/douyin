@@ -41,7 +41,7 @@ class ProductController extends AdminController
         //$grid->column('description', __('Description'));
         $grid->column('image_url', __('Image url'))->image(config('url').'/storage/', 30, 30);
         $grid->column('commission_rate', __('Commission rate'))->sortable();
-        $grid->column('commission', __('Commission'))->sortable();
+        $grid->column('commission', __('Commission'))->editable()->sortable();
         $grid->column('discounted_price', __('Discounted price'))->sortable();
         $grid->column('price', __('Price'))->sortable();
         $grid->column('favourable_price', __('Favourable price'))->sortable();
@@ -59,7 +59,7 @@ class ProductController extends AdminController
         });;
         $grid->column('copy_link', __('Copy link'))->link();
         $grid->column('activity_countdown', __('Activity countdown'));
-        $grid->column('sort_num', __('Sort num'))->sortable();
+        $grid->column('sort_num', __('Sort num'))->editable()->sortable();
 
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
