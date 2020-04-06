@@ -124,6 +124,7 @@ class ProductController extends AdminController
         $form->image('image_url', __('商品主图'))->rules('required');
         $form->UEditor('description', __('Description'))->rules('required');
         $form->decimal('commission_rate', __('Commission rate'));
+        $form->hidden('commission', __('Commission'))->default(0);
 
         $form->decimal('discounted_price', __('Discounted price'))->default(0.00)->rules('required');
         $form->decimal('price', __('Price'))->default(0.00)->rules('required');
@@ -136,15 +137,17 @@ class ProductController extends AdminController
         $form->date('activity_countdown', __('Activity countdown'))->default(date('H:i:s'))->rules('required');
         $form->switch('on_sale', __('On sale'))->default(1);
         $form->number('sort_num', __('Sort num'))->default(0);
-
 //        $form->number('type_id', __('Type id'));
 //        $form->number('category_id', __('Category id'));
-        //保存前回调
-        $form->saved(function (Form $form) {
-            $commission_rate = (bcdiv($form->model()->commission_rate,100,2));
-            $commission = bcmul($form->model()->discounted_price,$commission_rate,2);
-            Product::where('id',$form->model()->id)->update(['commission'=>$commission]);
-        });
+            //保存前回调
+            $form->saving(function (Form $form) {
+                if(request('commission') == $form->model()->commission) {
+                    $commission_rate = (bcdiv($form->model()->commission_rate,100,2));
+                    $commission = bcmul($form->model()->discounted_price,$commission_rate,2);
+                    Product::where('id',$form->model()->id)->update(['commission'=>$commission]);
+                }
+            });
+
         return $form;
     }
 }
