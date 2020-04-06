@@ -120,9 +120,9 @@ class ProductController extends AdminController
         $form->select('type_id',__('Type id'))->options(Type::pluck('name_zh','id'));
         $form->select('category_id',__('Category id'))->options(Category::pluck('name','id'));
         $form->text('title', __('Title'))->rules('required');
+        $form->image('image_url', __('商品主图'))->rules('required');
         $form->UEditor('description', __('Description'))->rules('required');
         $form->decimal('commission_rate', __('Commission rate'));
-        $form->image('image_url', __('Image url'))->rules('required');
 
         $form->decimal('discounted_price', __('Discounted price'))->default(0.00)->rules('required');
         $form->decimal('price', __('Price'))->default(0.00)->rules('required');
