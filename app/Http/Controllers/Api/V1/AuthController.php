@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\V1;
 
+use App\Http\Requests\AuthRequest;
 use App\Transformers\UserTransformer;
 use App\User;
 use Illuminate\Http\Request;
@@ -10,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     // 一个是登陆
-    public function store(Request $request)
+    public function store(AuthRequest $request)
     {
         $code = $request->code;
         // 小程序
