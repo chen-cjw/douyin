@@ -40,13 +40,13 @@ class ProductController extends AdminController
         $grid->column('title', __('Title'));
         //$grid->column('description', __('Description'));
         $grid->column('image_url', __('Image url'))->image(config('url').'/storage/', 30, 30);
-        $grid->column('commission_rate', __('Commission rate'))->sortable();
+        $grid->column('commission_rate', __('Commission rate'))->editable()->sortable();
         $grid->column('commission', __('Commission'))->editable()->sortable();
-        $grid->column('discounted_price', __('Discounted price'))->sortable();
-        $grid->column('price', __('Price'))->sortable();
-        $grid->column('favourable_price', __('Favourable price'))->sortable();
-        $grid->column('vermicelli_consumption', __('Vermicelli consumption'));
-        $grid->column('sample_quantity', __('Sample quantity'));
+        $grid->column('discounted_price', __('Discounted price'))->editable()->sortable();
+        $grid->column('price', __('Price'))->editable()->sortable();
+        $grid->column('favourable_price', __('Favourable price'))->editable()->sortable();
+        $grid->column('vermicelli_consumption', __('Vermicelli consumption'))->editable()->sortable();
+        $grid->column('sample_quantity', __('Sample quantity'))->editable()->sortable();
         $grid->column('support_dou', __('Support dou'))->display(function ($support_dou) {
             return $support_dou ? '是' : '否';
         });
