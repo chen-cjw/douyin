@@ -24,6 +24,7 @@ $api->version('v1', [
 ], function ($api) {
 
     $api->get('/auth','AuthController@index')->name('api.auth.index');
+    $api->post('/auth','AuthController@store')->name('api.auth.store');
 
     // 个人信息
     $api->get('/meShow','AuthController@meShow')->name('api.auth.meShow');
