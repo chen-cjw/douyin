@@ -15,11 +15,12 @@ class AuthController extends Controller
     {
         $code = $request->code;
         // 小程序
-        try {
+//        try {
             $app = app('wechat.mini_program');
             $sessionUser = $app->auth->session($code);
-//            dd($sessionUser);
+            return $sessionUser;
             $openid = $sessionUser['openid'];
+
             $user = User::where('openid', $openid)->first();
             if (!$user) {
                 //         'openid','nickname','sex','language','city','province','country','avatar','unionid'
@@ -27,12 +28,13 @@ class AuthController extends Controller
                     'openid' => $openid,
                 ]);
             }
-            dd($user);
-            $token = \Auth::guard('api')->fromUser($user);
-        } catch (\Exception $e) {
-            throw new \Exception('授权失败,请重新授权!');
-        }
-        return $this->respondWithToken($token,$openid)->setStatusCode(201);
+
+//            dd($user);
+//            $token = \Auth::guard('api')->fromUser($user);
+//        } catch (\Exception $e) {
+//            throw new \Exception('授权失败,请重新授权!');
+//        }
+//        return $this->respondWithToken($token,$openid)->setStatusCode(201);
 
     }
 
