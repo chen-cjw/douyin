@@ -27,6 +27,7 @@ class AuthController extends Controller
                     'openid' => $openid,
                 ]);
             }
+            dd($user);
             $token = \Auth::guard('api')->fromUser($user);
         } catch (\Exception $e) {
             throw new \Exception('授权失败,请重新授权!');
