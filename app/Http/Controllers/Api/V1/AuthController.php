@@ -33,7 +33,7 @@ class AuthController extends Controller
             // UnauthorizedHttpException
             throw new UnauthorizedHttpException('','授权失败,请重新授权');
         }
-        return $this->respondWithToken($token,$openid)->setStatusCode(201);
+        return $this->respondWithToken($token)->setStatusCode(201);
 
     }
 
@@ -47,12 +47,11 @@ class AuthController extends Controller
         Auth::guard('api')->logout();
         return $this->response->noContent();
     }
-    protected function respondWithToken($token,$openid)
+    protected function respondWithToken($token)
     {
 
         return $this->response->array([
             'access_token' => $token,
-            'openid' => $openid,
             'token_type' => 'Bearer',
             'expires_in' => Auth::guard('api')->factory()->getTTL() * 120
         ]);
