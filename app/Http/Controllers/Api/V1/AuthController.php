@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Requests\AuthRequest;
 use App\Transformers\UserTransformer;
 use App\User;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 class AuthController extends Controller
 {
@@ -15,26 +17,23 @@ class AuthController extends Controller
     {
         $code = $request->code;
         // 小程序
-//        try {
+        try {
             $app = app('wechat.mini_program');
             $sessionUser = $app->auth->session($code);
-            return $sessionUser;
             $openid = $sessionUser['openid'];
-
             $user = User::where('openid', $openid)->first();
+
             if (!$user) {
-                //         'openid','nickname','sex','language','city','province','country','avatar','unionid'
                 $user = User::create([
                     'openid' => $openid,
                 ]);
             }
-
-//            dd($user);
-//            $token = \Auth::guard('api')->fromUser($user);
-//        } catch (\Exception $e) {
-//            throw new \Exception('授权失败,请重新授权!');
-//        }
-//        return $this->respondWithToken($token,$openid)->setStatusCode(201);
+            $token = Auth::guard('api')->fromUser($user);
+        } catch (\Exception $e) {
+            // UnauthorizedHttpException
+            throw new UnauthorizedHttpException('','授权失败,请重新授权');
+        }
+        return $this->respondWithToken($token,$openid)->setStatusCode(201);
 
     }
 
