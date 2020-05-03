@@ -37,7 +37,9 @@ class ProductController extends AdminController
             return Category::where('id',$category_id)->value('name');
         });
 
-        $grid->column('title', __('Title'));
+        $grid->column('title', __('Title'))->display(function ($title) {
+            return Str::limit($title, $limit = 20, $end = '...');
+        });
         //$grid->column('description', __('Description'));
         $grid->column('image_url', __('Image url'))->image(config('url').'/storage/', 30, 30);
         $grid->column('commission_rate', __('Commission rate'))->editable()->sortable();
