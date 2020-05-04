@@ -72,6 +72,7 @@ class ProductController extends AdminController
             $category = new Category();
             // 在这里添加字段过滤器
             $filter->like('title', '商品名称');
+            $filter->like('copy_link', '链接');
             $filter->equal('type_id','所属类型')->select($type->orderSort()->pluck('name_zh','id'));
             $filter->equal('category_id','所属分类')->select($category->orderSort()->pluck('name','id'));
         });
