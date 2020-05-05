@@ -27,8 +27,8 @@ class TypeController extends AdminController
         $grid = new Grid(new Type());
 
         $grid->column('id', __('Id'))->sortable();
-        $grid->column('name_zh', __('Name zh'));
-        $grid->column('name_en', __('Name en'));
+        $grid->column('name_zh', __('Name zh'))->editable();
+        $grid->column('name_en', __('Name en'))->editable();
         $grid->column('image_url', __('Image url'))->image('', 30, 30);
         $grid->column('sort_num', __('Sort num'))->editable()->sortable();
         $grid->column('on_sale', __('On sale'))->display(function ($on_sale) {

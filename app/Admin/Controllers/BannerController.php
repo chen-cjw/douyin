@@ -29,7 +29,7 @@ class BannerController extends AdminController
         $grid->column('image_url', __('Image Url'))->image('/',30,30);//->image(config('url').'/storage/', 30, 30);
         $grid->column('href_url', __('Href Url'))->display(function ($href_url) {
             return $href_url?:'暂无';
-        });
+        })->editable();
         $grid->column('sort_num', __('Sort num'))->editable()->sortable();
         $grid->column('on_sale', __('On sale'))->display(function ($on_sale) {
                 return $on_sale ? '是' : '否';
