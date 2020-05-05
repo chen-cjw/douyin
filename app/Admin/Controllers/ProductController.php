@@ -56,10 +56,12 @@ class ProductController extends AdminController
         $grid->column('support_directional', __('Support directional'))->display(function ($support_directional) {
             return $support_directional ? '是' : '否';
         });
+        $states = [
+            'on'  => ['value' => 1, 'text' => '打开', 'color' => 'primary'],
+            'off' => ['value' => 2, 'text' => '关闭', 'color' => 'default'],
+        ];
         // on_sale
-        $grid->column('on_sale', __('显示否'))->display(function ($support_directional) {
-            return $support_directional ? '是' : '否';
-        });;
+        $grid->column('on_sale', __('显示否'))->switch($states);
         $grid->column('copy_link', __('Copy link'))->link();
         $grid->column('activity_countdown', __('Activity countdown'));
         $grid->column('sort_num', __('Sort num'))->editable()->sortable();

@@ -31,9 +31,11 @@ class BannerController extends AdminController
             return $href_url?:'暂无';
         })->editable();
         $grid->column('sort_num', __('Sort num'))->editable()->sortable();
-        $grid->column('on_sale', __('On sale'))->display(function ($on_sale) {
-                return $on_sale ? '是' : '否';
-        });
+        $states = [
+            'on'  => ['value' => 1, 'text' => '打开', 'color' => 'primary'],
+            'off' => ['value' => 2, 'text' => '关闭', 'color' => 'default'],
+        ];
+        $grid->column('on_sale', __('On sale'))->switch($states);
         $grid->column('created_at', __('Created at'))->sortable();
         $grid->column('updated_at', __('Updated at'))->sortable();
 
