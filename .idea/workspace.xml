@@ -28,8 +28,8 @@
       <file leaf-file-name="CategoryController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/CategoryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="31" column="8" lean-forward="true" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+            <state relative-caret-position="320">
+              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
             </state>
           </provider>
         </entry>
@@ -467,12 +467,12 @@
       <workItem from="1587793045895" duration="1276000" />
       <workItem from="1587883748028" duration="8764000" />
       <workItem from="1588233572067" duration="755000" />
-      <workItem from="1588495888312" duration="1856000" />
+      <workItem from="1588495888312" duration="2077000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88204000" />
+    <option name="totallyTimeSpent" value="88425000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -862,8 +862,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/CategoryController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="31" column="8" lean-forward="true" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+        <state relative-caret-position="320">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
         </state>
       </provider>
     </entry>

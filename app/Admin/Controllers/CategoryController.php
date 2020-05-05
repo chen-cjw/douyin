@@ -29,9 +29,12 @@ class CategoryController extends AdminController
         $grid->column('id', __('Id'))->sortable();
         $grid->column('name', __('Name'))->editable();
         $grid->column('sort_num', __('Sort num'))->editable()->sortable();
-        $grid->column('on_sale', __('On sale'))->display(function ($on_sale) {
-            return $on_sale ? '是' : '否';
-        });
+        $states = [
+            'on'  => ['value' => 1, 'text' => '打开', 'color' => 'primary'],
+            'off' => ['value' => 2, 'text' => '关闭', 'color' => 'default'],
+        ];
+
+        $grid->column('on_sale', __('On sale'))->switch($states);
         $grid->filter(function($filter){
             $filter->like('name', __('Name'));
         });
