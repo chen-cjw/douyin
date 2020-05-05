@@ -30,7 +30,7 @@ class ProductController extends AdminController
         $grid = new Grid(new Product());
 
         $grid->column('id', __('Id'))->sortable();
-
+        $grid->column('image_url', __('Image url'))->image(config('url').'/storage/', 30, 30);
         $grid->column('type_id', __('Type id'))->display(function ($type_id) {
             return Type::where('id',$type_id)->value('name_zh');
         });
@@ -42,7 +42,6 @@ class ProductController extends AdminController
             return Str::limit($title, $limit = 20, $end = '...');
         });
         //$grid->column('description', __('Description'));
-        $grid->column('image_url', __('Image url'))->image(config('url').'/storage/', 30, 30);
         $grid->column('commission_rate', __('Commission rate'))->editable()->sortable();
         $grid->column('commission', __('Commission'))->editable()->sortable();
         $grid->column('discounted_price', __('Discounted price'))->editable()->sortable();
@@ -50,12 +49,12 @@ class ProductController extends AdminController
         $grid->column('favourable_price', __('Favourable price'))->editable()->sortable();
         $grid->column('vermicelli_consumption', __('Vermicelli consumption'))->editable()->sortable();
         $grid->column('sample_quantity', __('Sample quantity'))->editable()->sortable();
-        $grid->column('support_dou', __('Support dou'))->display(function ($support_dou) {
-            return $support_dou ? '是' : '否';
-        });
-        $grid->column('support_directional', __('Support directional'))->display(function ($support_directional) {
-            return $support_directional ? '是' : '否';
-        });
+//        $grid->column('support_dou', __('Support dou'))->display(function ($support_dou) {
+//            return $support_dou ? '是' : '否';
+//        });
+//        $grid->column('support_directional', __('Support directional'))->display(function ($support_directional) {
+//            return $support_directional ? '是' : '否';
+//        });
         $states = [
             'on'  => ['value' => 1, 'text' => '打开', 'color' => 'primary'],
             'off' => ['value' => 2, 'text' => '关闭', 'color' => 'default'],
