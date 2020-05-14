@@ -123,8 +123,8 @@ class ProductController extends AdminController
     {
         $form = new Form(new Product());
 
-        $form->select('type_id',__('Type id'))->options(Type::pluck('name_zh','id'));
-        $form->select('category_id',__('Category id'))->options(Category::pluck('name','id'));
+        $form->select('type_id',__('Type id'))->options(Type::where('on_sale',true)->pluck('name_zh','id'));
+        $form->select('category_id',__('Category id'))->options(Category::where('on_sale',true)->pluck('name','id'));
         $form->text('title', __('Title'))->rules('required');
         $form->text('image_url', __('商品主图'))->rules('required');
         $form->UEditor('description', __('Description'))->rules('required');
