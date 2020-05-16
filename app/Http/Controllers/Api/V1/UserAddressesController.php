@@ -31,9 +31,9 @@ class UserAddressesController extends Controller
         return $this->response->created();
     }
 
-    public function update(UserAddress $user_address, UserAddressRequest $request)
+    public function update($user_address, UserAddressRequest $request)
     {
-        $user_address->update($request->only([
+        auth()->user()->addresses()->where('id',$user_address)->update($request->only([
             'province',
             'city',
             'district',

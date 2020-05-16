@@ -16,7 +16,7 @@ class CartController extends Controller
         return $this->response->paginator($cartItems,new CartItemTransformer());
     }
     
-    public function add(AddCartRequest $request)
+    public function store(AddCartRequest $request)
     {
         $user   = auth('api')->user();
         $productId  = $request->input('product_id');

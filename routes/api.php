@@ -49,10 +49,14 @@ $api->version('v1', [
         $api->delete('user_addresses/{user_address}', 'UserAddressesController@destroy')->name('user_addresses.updatdestroye');
 
         // 添加购物车
-        $api->get('cart', 'CartController@index')->name('cart.index');
-        $api->post('cart', 'CartController@add')->name('cart.add');    // 添加购物车商品
+        $api->get('carts', 'CartController@index')->name('carts.index');
+        $api->post('carts', 'CartController@store')->name('carts.store');    // 添加购物车商品
         // 删除购物车商品
-        $api->delete('cart/{sku}', 'CartController@remove')->name('cart.remove');
+        $api->delete('carts/{sku}', 'CartController@remove')->name('carts.remove');
+
+        //
+        $api->post('orders', 'OrdersController@store')->name('cart.store');
+
     });
 
 
