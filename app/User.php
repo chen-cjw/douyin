@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Models\CartItem;
+use App\Models\Order;
 use App\Models\UserAddress;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -62,5 +63,10 @@ class User extends Authenticatable implements JWTSubject
     public function addresses()
     {
         return $this->hasMany(UserAddress::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }

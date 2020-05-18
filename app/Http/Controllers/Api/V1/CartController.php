@@ -39,9 +39,13 @@ class CartController extends Controller
     }
 
     // 删除购物车商品
-    public function remove($product, Request $request)
+    public function remove($productIds)
     {
-        auth('api')->user()->cartItems()->where('product_id', $product)->delete();
+        // 可以传单个 ID，也可以传 ID 数组
+        if (!is_array($productIds)) {
+            $productIds = explode(',',$productIds);
+        }
+        auth('api')->user()->cartItems()->whereIn('product_id', $productIds)->delete();
         return $this->response->noContent();
     }
 }

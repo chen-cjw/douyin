@@ -1,11 +1,11 @@
 <?php
 namespace App\Transformers;
-use App\Models\Banner;
 use App\Models\OrderItem;
 use League\Fractal\TransformerAbstract;
 
 class OrderItemTransformer extends TransformerAbstract
 {
+    protected $availableIncludes = ['product'];
 
     public function transform(OrderItem $orderItem)
     {
@@ -16,8 +16,12 @@ class OrderItemTransformer extends TransformerAbstract
             'rating' => $orderItem->rating,
             'review' => $orderItem->review, // 用户评价
             'reviewed_at' => $orderItem->reviewed_at,// 评价时间
-            'created_at' => $orderItem->created_at->toDateTimeString(),
-            'updated_at' => $orderItem->updated_at->toDateTimeString(),
         ];
     }
+
+    public function includeProduct(OrderItem $orderItem)
+    {
+        return $this->item($orderItem->product,new ProductTransformer());
+    }
+
 }

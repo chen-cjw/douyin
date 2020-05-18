@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Requests\OrderRequest;
+use App\Jobs\CloseOrder;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\UserAddress;
@@ -13,6 +14,17 @@ use Carbon\Carbon;
 
 class OrdersController extends Controller
 {
+    public function index()
+    {
+        $orders = auth('api')->user()->orders()->orderBy('created_at','desc')->paginate();
+        return $this->response->paginator($orders,new OrderTransformer());
+    }
+    public function show($id)
+    {
+        $order = auth('api')->user()->orders()->where('id',$id)->firstOrFail();
+        return $this->response->item($order,new OrderTransformer());
+    }
+    
     public function store(OrderRequest $orderRequest)
     {
         $user  = auth('api')->user();
@@ -61,7 +73,7 @@ class OrdersController extends Controller
             $user->cartItems()->whereIn('product_id', $productIds)->delete();
             return $this->response->item($order,new OrderTransformer());
         });
-        $this->dispatch(new CloseOrder($order, config('app.order_ttl')));
+//        $this->dispatch(new CloseOrder($order, config('app.order_ttl')));
         return $this->response->item($order,new OrderTransformer());
     }
 }

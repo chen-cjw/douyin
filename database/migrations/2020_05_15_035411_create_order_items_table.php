@@ -22,7 +22,7 @@ class CreateOrderItemsTable extends Migration
             $table->unsignedInteger('sample_quantity')->comment('样品数量');
             $table->decimal('price', 10, 2)->comment('单价');
             $table->unsignedInteger('rating')->nullable()->comment('用户打分');
-            $table->text('review')->nullable()->comment('	用户评价');
+            $table->text('review')->nullable()->comment('用户评价');
             $table->timestamp('reviewed_at')->nullable()->comment('评价时间');
         });
     }

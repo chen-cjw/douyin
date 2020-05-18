@@ -52,11 +52,14 @@ $api->version('v1', [
         // 添加购物车
         $api->get('carts', 'CartController@index')->name('carts.index');
         $api->post('carts', 'CartController@store')->name('carts.store');    // 添加购物车商品
-        // 删除购物车商品
-        $api->delete('carts/{sku}', 'CartController@remove')->name('carts.remove');
+        $api->delete('carts/{sku}', 'CartController@remove')->name('carts.remove');   // 删除购物车商品
 
-        //
+        // 订单
+        $api->get('orders', 'OrdersController@index')->name('cart.index');
+        $api->get('orders/{order}', 'OrdersController@show')->name('cart.show');
         $api->post('orders', 'OrdersController@store')->name('cart.store');
+
+
 
     });
 

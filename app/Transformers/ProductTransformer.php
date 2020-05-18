@@ -1,6 +1,5 @@
 <?php
 namespace App\Transformers;
-use App\Models\Banner;
 use App\Models\Product;
 use League\Fractal\TransformerAbstract;
 

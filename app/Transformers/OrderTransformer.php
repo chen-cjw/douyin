@@ -1,6 +1,5 @@
 <?php
 namespace App\Transformers;
-use App\Models\Banner;
 use App\Models\Order;
 use League\Fractal\TransformerAbstract;
 
@@ -30,8 +29,10 @@ class OrderTransformer extends TransformerAbstract
             'updated_at' => $order->updated_at->toDateTimeString(),
         ];
     }
+
     public function includeItems(Order $order)
     {
-        return $this->collection($order->items,new CartItemTransformer());
+        return $this->collection($order->items,new OrderItemTransformer());
     }
+
 }
