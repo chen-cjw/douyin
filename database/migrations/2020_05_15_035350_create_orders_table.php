@@ -29,7 +29,7 @@ class CreateOrdersTable extends Migration
             $table->boolean('closed')->default(false)->comment('订单是否已关闭');
             $table->boolean('reviewed')->default(false)->comment('订单是否已评价');
             $table->string('ship_status')->comment('物流状态')->default(\App\Models\Order::SHIP_STATUS_PENDING);
-            $table->text('ship_data')->comment('物流数据');
+            $table->text('ship_data')->nullable()->comment('物流数据');
             $table->text('extra')->nullable()->comment('其他额外的数据');
             $table->timestamps();
         });

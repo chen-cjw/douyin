@@ -6,6 +6,7 @@ use League\Fractal\TransformerAbstract;
 
 class OrderTransformer extends TransformerAbstract
 {
+    protected $availableIncludes = ['items'];
 
     public function transform(Order $order)
     {
@@ -28,5 +29,9 @@ class OrderTransformer extends TransformerAbstract
             'created_at' => $order->created_at->toDateTimeString(),
             'updated_at' => $order->updated_at->toDateTimeString(),
         ];
+    }
+    public function includeItems(Order $order)
+    {
+        return $this->collection($order->items,new CartItemTransformer());
     }
 }
