@@ -61,6 +61,7 @@ class OrdersController extends Controller
             $user->cartItems()->whereIn('product_id', $productIds)->delete();
             return $this->response->item($order,new OrderTransformer());
         });
+        $this->dispatch(new CloseOrder($order, config('app.order_ttl')));
         return $this->response->item($order,new OrderTransformer());
     }
 }
