@@ -2,21 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8663fd7-7d8b-40d3-8bd8-551d894d0ea5" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/douyin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/douyin.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/OrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/OrdersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/UserAddressesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/V1/UserAddressesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Jobs/CloseOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/CloseOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/UserAddress.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/UserAddress.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Transformers/UserAddressTransformer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Transformers/UserAddressTransformer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/wechat.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/wechat.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_13_065220_create_user_addresses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_13_065220_create_user_addresses_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,7 +16,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="OrdersController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OrdersController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/V1/OrdersController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="427">
@@ -39,6 +24,15 @@
               <folding>
                 <element signature="e#47#82#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="278">
+              <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -108,15 +102,6 @@
               <folding>
                 <element signature="e#47#88#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserAddressRequest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Requests/UserAddressRequest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -213,7 +198,6 @@
         <option value="$PROJECT_DIR$/app/Transformers/ProductTransformer.php" />
         <option value="$PROJECT_DIR$/app/Transformers/OrderItemTransformer.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_05_15_035411_create_order_items_table.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/CartController.php" />
         <option value="$PROJECT_DIR$/app/Services/CartService.php" />
         <option value="$PROJECT_DIR$/config/database.php" />
@@ -226,6 +210,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/UserAddressesController.php" />
         <option value="$PROJECT_DIR$/app/Transformers/UserAddressTransformer.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/V1/OrdersController.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
       </list>
     </option>
   </component>
@@ -443,24 +428,7 @@
               <item name="douyin" type="b2602c69:ProjectViewProjectNode" />
               <item name="douyin" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="douyin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="douyin" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="douyin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="douyin" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="douyin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="douyin" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="douyin" type="b2602c69:ProjectViewProjectNode" />
@@ -523,12 +491,12 @@
       <workItem from="1589157312153" duration="335000" />
       <workItem from="1589416473465" duration="17827000" />
       <workItem from="1589591608211" duration="10002000" />
-      <workItem from="1589618947138" duration="19361000" />
+      <workItem from="1589618947138" duration="19479000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136932000" />
+    <option name="totallyTimeSpent" value="137050000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -857,13 +825,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="61" column="10" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/UserAddressRequest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -936,6 +897,13 @@
           <folding>
             <element signature="e#47#82#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="47" column="19" selection-start-line="47" selection-start-column="19" selection-end-line="47" selection-end-column="19" />
         </state>
       </provider>
     </entry>
