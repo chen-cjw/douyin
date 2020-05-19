@@ -5,36 +5,29 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Requests\AddCartRequest;
 use App\Models\CartItem;
 use App\Models\Product;
+use App\Services\CartService;
 use App\Transformers\CartItemTransformer;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+    protected $cartService;
+
+    public function __construct(CartService $cartService)
+    {
+        $this->cartService = $cartService;
+    }
+
     public function index()
     {
-        $cartItems = auth('api')->user()->cartItems()->paginate();
-        return $this->response->paginator($cartItems,new CartItemTransformer());
+        return $this->response->paginator($this->cartService->index(),new CartItemTransformer());
     }
     
     public function store(AddCartRequest $request)
     {
-        $user   = auth('api')->user();
         $productId  = $request->input('product_id');
         $sampleQuantity = $request->input('sample_quantity');
-
-        // 从数据库中查询该商品是否已经在购物车中
-        if ($cart = $user->cartItems()->where('product_id', $productId)->first()) {
-            // 如果存在则直接叠加商品数量
-            $cart->update([
-                'sample_quantity' => $cart->sample_quantity + $sampleQuantity,
-            ]);
-        } else {
-            // 否则创建一个新的购物车记录
-            $cart = new CartItem(['sample_quantity' => $sampleQuantity]);
-            $cart->user()->associate($user);
-            $cart->product()->associate($productId);
-            $cart->save();
-        }
+        $this->cartService->add($productId,$sampleQuantity);
         return $this->response->created();
     }
 

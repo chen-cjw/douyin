@@ -25,6 +25,7 @@ class CreateUserAddressesTable extends Migration
             $table->string('contact_name')->comment('联系人姓名');
             $table->string('contact_phone')->comment('联系人电话');
             $table->dateTime('last_used_at')->nullable()->comment('最后一次使用时间');
+            $table->boolean('default')->default(0)->comment('设置默认是那个地址');
             $table->timestamps();
         });
     }

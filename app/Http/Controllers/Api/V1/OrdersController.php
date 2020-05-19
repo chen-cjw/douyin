@@ -11,6 +11,7 @@ use App\Transformers\OrderTransformer;
 use Dingo\Api\Exception\StoreResourceFailedException;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Symfony\Component\Translation\Exception\InvalidResourceException;
 
 class OrdersController extends Controller
 {
@@ -64,6 +65,11 @@ class OrdersController extends Controller
                 $item->product()->associate($product);
                 $item->save();
                 $totalAmount += $product->discounted_price * $data['sample_quantity']; // 价格太多要注意
+                // 减库存
+                if ($product->decreaseStock($data['sample_quantity']) <= 0) {
+                    throw new InvalidResourceException('该商品库存不足');
+//                    throw new InvalidRequestException('该商品库存不足');
+                }
             }
             // 更新订单总金额
             $order->update(['total_amount' => $totalAmount]);
@@ -71,8 +77,11 @@ class OrdersController extends Controller
             // 将下单的商品从购物车中移除
             $productIds = collect($items)->pluck('product_id');
             $user->cartItems()->whereIn('product_id', $productIds)->delete();
+//            $this->dispatch(new CloseOrder($order, config('app.order_ttl')));
+
             return $this->response->item($order,new OrderTransformer());
         });
+//        return $order;
 //        $this->dispatch(new CloseOrder($order, config('app.order_ttl')));
         return $this->response->item($order,new OrderTransformer());
     }

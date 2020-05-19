@@ -54,7 +54,11 @@ class UserAddressesController extends Controller
     // 每次使用默认的地址
     public function setDefault($id)
     {
-        auth()->user()->addresses()->where('id',$id)->update(['last_used_at'=>date('Y-m-d H:i:s')]);
+        auth()->user()->addresses()->where('id',$id)->update([
+            'last_used_at'=>date('Y-m-d H:i:s'),
+            'default'=>true,
+        ]);
+
         return $this->response->created();
     }
 }
