@@ -60,7 +60,8 @@ $api->version('v1', [
         $api->post('orders', 'OrdersController@store')->name('cart.store');
 
         //
-
+        Route::get('payment/{order}/wechat', 'PaymentController@payByWechat')->name('payment.wechat');
+        Route::post('payment/wechat/notify', 'PaymentController@wechatNotify')->name('payment.wechat.notify');
     });
 
 
