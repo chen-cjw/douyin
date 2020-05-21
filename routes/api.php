@@ -57,11 +57,13 @@ $api->version('v1', [
         // 订单
         $api->get('orders', 'OrdersController@index')->name('cart.index');
         $api->get('orders/{order}', 'OrdersController@show')->name('cart.show');
-        $api->post('orders', 'OrdersController@store')->name('cart.store');
-
+        $api->post('orders', 'OrdersController@store')->name('cart.store'); //
+        $api->post('orders/{order}/received', 'OrdersController@received')->name('orders.received'); // 确认收获
+        $api->post('orders/{order}/apply_refund', 'OrdersController@applyRefund')->name('orders.apply_refund');// 退款申请
         //
-        Route::get('payment/{order}/wechat', 'PaymentController@payByWechat')->name('payment.wechat');
-        Route::post('payment/wechat/notify', 'PaymentController@wechatNotify')->name('payment.wechat.notify');
+        $api->get('payment/{order}/wechat', 'PaymentController@payByWechat')->name('payment.wechat');
+        $api->post('payment/wechat/notify', 'PaymentController@wechatNotify')->name('payment.wechat.notify');
+
     });
 
 

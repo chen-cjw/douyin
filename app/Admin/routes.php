@@ -16,5 +16,8 @@ Route::group([
     $router->resource('categories', 'CategoryController'); // 分类
     $router->resource('products', 'ProductController'); // 商品
     $router->resource('types', 'TypeController');   // 类型
-
+    $router->get('orders', 'OrdersController@index')->name('admin.orders.index');
+    $router->get('orders/{order}', 'OrdersController@show')->name('admin.orders.show');
+    $router->post('orders/{order}/ship', 'OrdersController@ship')->name('admin.orders.ship');// 发货的接口
+    $router->post('orders/{order}/refund', 'OrdersController@handleRefund')->name('admin.orders.handle_refund');
 });

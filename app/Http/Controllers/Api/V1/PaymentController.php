@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use Carbon\Carbon;
+use Dingo\Api\Exception\ResourceException;
 use Illuminate\Http\Request;
-use Symfony\Component\Translation\Exception\InvalidResourceException;
 
 class PaymentController extends Controller
 {
@@ -24,8 +24,7 @@ class PaymentController extends Controller
         $order = auth()->user()->orders()->where('id',$order)->firstOrFail();
         // 校验订单状态
         if ($order->paid_at || $order->closed) {
-            throw new InvalidResourceException('订单状态不正确');
-            //throw new InvalidRequestException('订单状态不正确');
+            throw new ResourceException('订单状态不正确');
         }
 
         $result = $this->app->order->unify([
