@@ -103,7 +103,7 @@ class OrdersController extends AdminController
     // 处理退款的接口
     public function handleRefund($id, HandleRefundRequest $request)
     {
-        $order = Order::find($id);
+        $order = Order::findOrFail($id);
         // 判断订单状态是否正确
         if ($order->refund_status !== Order::REFUND_STATUS_APPLIED) {
             throw new ResourceException('订单状态不正确');
@@ -122,7 +122,6 @@ class OrdersController extends AdminController
                 'extra'         => $extra,
             ]);
         }
-
         return $order;
     }
 
