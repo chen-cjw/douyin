@@ -63,6 +63,7 @@ $api->version('v1', [
         //
         $api->get('payment/{order}/wechat', 'PaymentController@payByWechat')->name('payment.wechat');
         $api->post('payment/wechat/notify', 'PaymentController@wechatNotify')->name('payment.wechat.notify');
+        $api->post('payment/wechat/refund_notify', 'PaymentController@wechatRefundNotify')->name('payment.wechat.refund_notify');// 退款
 
     });
 

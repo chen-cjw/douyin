@@ -122,6 +122,7 @@ class OrdersController extends AdminController
                 'extra'         => $extra,
             ]);
         }
+
         return $order;
     }
 
