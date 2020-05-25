@@ -19,6 +19,7 @@ class UserAddressRequest extends FormRequest
             'zip'           => 'required',
             'contact_name'  => 'required',
             'contact_phone' => 'required',
+            'default_address' => 'in:true,false'
         ];
     }
     public function attributes()
@@ -31,6 +32,7 @@ class UserAddressRequest extends FormRequest
             'zip'           => '邮编',
             'contact_name'  => '姓名',
             'contact_phone' => '电话',
+            'default_address' => '默认地址',
         ];
     }
 }

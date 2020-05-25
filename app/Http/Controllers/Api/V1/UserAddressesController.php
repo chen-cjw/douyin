@@ -26,6 +26,10 @@ class UserAddressesController extends Controller
             'contact_name',
             'contact_phone',
         ]);
+        if($default_address = $request->default_address == true) {
+            $data['default'] =  true;
+            auth()->user()->addresses()->update(['default'=>false]);
+        }
         $data['last_used_at'] = date('Y-m-d H:i:s');
         auth('api')->user()->addresses()->create($data);
         return $this->response->created();
