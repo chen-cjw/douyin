@@ -31,7 +31,7 @@ class OrdersController extends Controller
     {
         $user  = auth('api')->user();
         // 开启一个数据库事务
-//        $order = \DB::transaction(function () use ($user, $orderRequest) {
+        $order = \DB::transaction(function () use ($user, $orderRequest) {
             $address = $user->addresses()->where('id',$orderRequest->input('address_id'))->first();
 
             // 更新此地址的最后使用时间
@@ -77,13 +77,8 @@ class OrdersController extends Controller
             $productIds = collect($items)->pluck('product_id');
             $user->cartItems()->whereIn('product_id', $productIds)->delete();
             $this->dispatch(new CloseOrder($order, config('app.order_ttl')));
-//            return 111;
             return $this->response->item($order,new OrderTransformer());
-//        });
-        return 222;
-
-        //        return $order;
-//        $this->dispatch(new CloseOrder($order, config('app.order_ttl')));
+        });
         return $this->response->item($order,new OrderTransformer());
     }
 
@@ -124,7 +119,5 @@ class OrdersController extends Controller
         ]);
         return $this->response->item($order,new OrderTransformer());
     }
-
-
 
 }
