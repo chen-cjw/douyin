@@ -18,7 +18,7 @@ class UserAddressTransformer extends TransformerAbstract
             'zip' => $address->zip,
             'contact_name' => $address->contact_name,
             'contact_phone' => $address->contact_phone,
-            'last_used_at' => $address->last_used_at,
+            'last_used_at' => $address->last_used_at->toDateTimeString(),
             'full_address' => $address->full_address,
             'default_address' => $address->default,
             'created_at' => $address->created_at->toDateTimeString(),

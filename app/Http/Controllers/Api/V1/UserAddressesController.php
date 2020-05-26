@@ -17,6 +17,18 @@ class UserAddressesController extends Controller
 
     public function store(UserAddressRequest $request)
     {
+        auth('api')->user()->addresses()->create($this->parameter($request));
+        return $this->response->created();
+    }
+
+    public function update($user_address, UserAddressRequest $request)
+    {
+        auth()->user()->addresses()->where('id',$user_address)->update($this->parameter($request));
+        return $this->response->created();
+    }
+
+    protected function parameter($request)
+    {
         $data = $request->only([
             'province',
             'city',
@@ -26,27 +38,8 @@ class UserAddressesController extends Controller
             'contact_name',
             'contact_phone',
         ]);
-        if($default_address = $request->default_address == true) {
-            $data['default'] =  true;
-            auth()->user()->addresses()->update(['default'=>false]);
-        }
         $data['last_used_at'] = date('Y-m-d H:i:s');
-        auth('api')->user()->addresses()->create($data);
-        return $this->response->created();
-    }
-
-    public function update($user_address, UserAddressRequest $request)
-    {
-        auth()->user()->addresses()->where('id',$user_address)->update($request->only([
-            'province',
-            'city',
-            'district',
-            'address',
-            'zip',
-            'contact_name',
-            'contact_phone',
-        ]));
-        return $this->response->created();
+        return $data;
     }
 
     public function destroy($id)
@@ -58,10 +51,8 @@ class UserAddressesController extends Controller
     // 每次使用默认的地址
     public function setDefault($id)
     {
-        auth()->user()->addresses()->update(['default'=>false]);
         auth()->user()->addresses()->where('id',$id)->update([
             'last_used_at'=>date('Y-m-d H:i:s'),
-            'default'=>true,
         ]);
 
         return $this->response->created();
