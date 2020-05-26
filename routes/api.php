@@ -46,7 +46,6 @@ $api->version('v1', [
         $api->get('user_addresses', 'UserAddressesController@index')->name('user_addresses.index');
         $api->post('user_addresses', 'UserAddressesController@store')->name('user_addresses.store');
         $api->put('user_addresses/{user_address}', 'UserAddressesController@update')->name('user_addresses.update');
-        $api->put('user_addresses/{user_address}/set_default', 'UserAddressesController@setDefault')->name('user_addresses.set_default');
         $api->delete('user_addresses/{user_address}', 'UserAddressesController@destroy')->name('user_addresses.updatdestroye');
 
         // 添加购物车

@@ -20,7 +20,6 @@ class UserAddressTransformer extends TransformerAbstract
             'contact_phone' => $address->contact_phone,
             'last_used_at' => $address->last_used_at->toDateTimeString(),
             'full_address' => $address->full_address,
-            'default_address' => $address->default,
             'created_at' => $address->created_at->toDateTimeString(),
             'updated_at' => $address->updated_at->toDateTimeString(),
         ];
