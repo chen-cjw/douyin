@@ -86,7 +86,10 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class,'order_id','id');
     }
-
+    public function couponCode()
+    {
+        return $this->belongsTo(CouponCode::class);
+    }
     public static function findAvailableNo()
     {
         // 订单流水号前缀
