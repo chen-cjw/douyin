@@ -64,6 +64,8 @@ $api->version('v1', [
         $api->post('payment/wechat/notify', 'PaymentController@wechatNotify')->name('payment.wechat.notify');
         $api->post('payment/wechat/refund_notify', 'PaymentController@wechatRefundNotify')->name('payment.wechat.refund_notify');// 退款
 
+        // 优惠券的展示 code是优惠券的code
+        $api->get('coupon_codes/{code}', 'CouponCodesController@show')->name('coupon_codes.show');
     });
 
 
