@@ -134,14 +134,14 @@ class ProductController extends AdminController
         $form->decimal('discounted_price', __('Discounted price'))->default(0.00)->rules('required');
         $form->decimal('price', __('Price'))->default(0.00)->rules('required');
         $form->decimal('favourable_price', __('Favourable price'))->default(0.00)->rules('required');
-        $form->decimal('vermicelli_consumption', __('Vermicelli consumption'))->rules('required');
-        $form->decimal('sample_quantity', __('Sample quantity'))->rules('required');
+        $form->decimal('vermicelli_consumption', __('Vermicelli consumption'))->default(1000)->rules('required');
+        $form->decimal('sample_quantity', __('Sample quantity'))->default(100)->rules('required');
         $form->switch('support_dou', __('Support dou'))->default(1)->rules('required');
         $form->switch('support_directional', __('Support directional'))->default(1)->rules('required');
         $form->text('copy_link', __('Copy link'))->rules('required');
         $form->date('activity_countdown', __('Activity countdown'))->default(date('H:i:s'))->rules('required');
         $form->switch('on_sale', __('On sale'))->default(1);
-        $form->number('sort_num', __('Sort num'))->default(0);
+        $form->number('sort_num', __('Sort num'))->default(0)->default(Product::orderBy('id','desc')->value('sort_num'));
 //        $form->number('type_id', __('Type id'));
 //        $form->number('category_id', __('Category id'));
             //保存前回调
