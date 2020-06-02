@@ -151,7 +151,7 @@ class ProductController extends AdminController
                     $commission = bcmul($form->model()->discounted_price,$commission_rate,2);
                     Product::where('id',$form->model()->id)->update(['commission'=>$commission]);
                 }else {
-                    $form->model()->commission = bcmul($form->model()->discounted_price,bcdiv($form->model()->commission_rate,100,2),2);
+                    $form->commission = bcmul($form->model()->discounted_price,bcdiv($form->model()->commission_rate,100,2),2);
                 }
             });
 
