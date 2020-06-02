@@ -126,6 +126,7 @@ class ProductController extends AdminController
         $form->select('type_id',__('Type id'))->options(Type::where('on_sale',true)->pluck('name_zh','id'));
         $form->select('category_id',__('Category id'))->options(Category::where('on_sale',true)->pluck('name','id'));
         $form->text('title', __('Title'))->rules('required');
+        $form->text('copy_link', __('Copy link'))->rules('required');
         $form->text('image_url', __('商品主图'))->rules('required');
         $form->UEditor('description', __('Description'))->rules('required');
         $form->decimal('commission_rate', __('Commission rate'))->default(0);
@@ -138,7 +139,6 @@ class ProductController extends AdminController
         $form->decimal('sample_quantity', __('Sample quantity'))->default(100)->rules('required');
         $form->switch('support_dou', __('Support dou'))->default(1)->rules('required');
         $form->switch('support_directional', __('Support directional'))->default(1)->rules('required');
-        $form->text('copy_link', __('Copy link'))->rules('required');
         $form->date('activity_countdown', __('Activity countdown'))->default(date("Y-m-d", strtotime('+10 days', time())))->rules('required');
         $form->switch('on_sale', __('On sale'))->default(1);
         $form->number('sort_num', __('Sort num'))->default(0)->default((Product::orderBy('id','desc')->value('sort_num')+1));
