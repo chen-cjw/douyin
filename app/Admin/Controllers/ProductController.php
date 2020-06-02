@@ -141,7 +141,7 @@ class ProductController extends AdminController
         $form->text('copy_link', __('Copy link'))->rules('required');
         $form->date('activity_countdown', __('Activity countdown'))->default(date("Y-m-d", strtotime('+10 days', time())))->rules('required');
         $form->switch('on_sale', __('On sale'))->default(1);
-        $form->number('sort_num', __('Sort num'))->default(0)->default(Product::orderBy('id','desc')->value('sort_num'));
+        $form->number('sort_num', __('Sort num'))->default(0)->default((Product::orderBy('id','desc')->value('sort_num')+1));
 //        $form->number('type_id', __('Type id'));
 //        $form->number('category_id', __('Category id'));
             //保存前回调
