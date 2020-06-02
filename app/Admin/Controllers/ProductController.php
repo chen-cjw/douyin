@@ -128,7 +128,7 @@ class ProductController extends AdminController
         $form->text('title', __('Title'))->rules('required');
         $form->text('image_url', __('商品主图'))->rules('required');
         $form->UEditor('description', __('Description'))->rules('required');
-        $form->decimal('commission_rate', __('Commission rate'));
+        $form->decimal('commission_rate', __('Commission rate'))->default(0);
         $form->hidden('commission', __('Commission'))->default(0);
 
         $form->decimal('discounted_price', __('Discounted price'))->default(0.00)->rules('required');
