@@ -64,8 +64,8 @@
       <file leaf-file-name="ProductController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ProductController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="153" column="15" lean-forward="true" selection-start-line="153" selection-start-column="15" selection-end-line="153" selection-end-column="15" />
+            <state relative-caret-position="285">
+              <caret line="154" column="17" lean-forward="true" selection-start-line="154" selection-start-column="17" selection-end-line="154" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -526,12 +526,12 @@
       <workItem from="1589591608211" duration="10002000" />
       <workItem from="1589618947138" duration="59367000" />
       <workItem from="1590721864991" duration="3998000" />
-      <workItem from="1590973377469" duration="1714000" />
+      <workItem from="1590973377469" duration="2108000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="182650000" />
+    <option name="totallyTimeSpent" value="183044000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -935,8 +935,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Admin/Controllers/ProductController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="153" column="15" lean-forward="true" selection-start-line="153" selection-start-column="15" selection-end-line="153" selection-end-column="15" />
+        <state relative-caret-position="285">
+          <caret line="154" column="17" lean-forward="true" selection-start-line="154" selection-start-column="17" selection-end-line="154" selection-end-column="17" />
         </state>
       </provider>
     </entry>

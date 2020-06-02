@@ -146,11 +146,13 @@ class ProductController extends AdminController
 //        $form->number('category_id', __('Category id'));
             //保存前回调
             $form->saving(function (Form $form) {
-//                if(request('commission') == $form->model()->commission) {
+                if(request('commission') == $form->model()->commission) {
                     $commission_rate = (bcdiv($form->model()->commission_rate,100,2));
                     $commission = bcmul($form->model()->discounted_price,$commission_rate,2);
                     Product::where('id',$form->model()->id)->update(['commission'=>$commission]);
-//                }
+                }else {
+                    $form->model()->commission = bcmul($form->model()->discounted_price,bcdiv($form->model()->commission_rate,100,2),2);
+                }
             });
 
         return $form;
