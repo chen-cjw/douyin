@@ -21,11 +21,12 @@ Route::group([
     $router->post('orders/{order}/ship', 'OrdersController@ship')->name('admin.orders.ship');// 发货的接口
     $router->post('orders/{order}/refund', 'OrdersController@handleRefund')->name('admin.orders.handle_refund');
 
-    $router->get('coupon_codes', 'CouponCodesController@index');// 优惠券
-    $router->post('coupon_codes', 'CouponCodesController@store');
-    $router->get('coupon_codes/create', 'CouponCodesController@create');
-    $router->get('coupon_codes/{id}/edit', 'CouponCodesController@edit');
-    $router->put('coupon_codes/{id}', 'CouponCodesController@update');
-    $router->delete('coupon_codes/{id}', 'CouponCodesController@destroy');
+//    $router->get('coupon_codes', 'CouponCodesController@index');// 优惠券
+//    $router->post('coupon_codes', 'CouponCodesController@store');
+//    $router->get('coupon_codes/create', 'CouponCodesController@create');
+//    $router->get('coupon_codes/{id}/edit', 'CouponCodesController@edit');
+//    $router->put('coupon_codes/{id}', 'CouponCodesController@update');
+//    $router->delete('coupon_codes/{id}', 'CouponCodesController@destroy');
+    $router->resource('coupon_codes', 'OrdersController');   // 优惠券
 
 });

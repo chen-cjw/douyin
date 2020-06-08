@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Requests\AuthRequest;
 use App\Transformers\UserTransformer;
 use App\User;
-use Illuminate\Auth\AuthenticationException;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
@@ -44,7 +42,7 @@ class AuthController extends Controller
     // 个人中心
     public function meShow()
     {
-        return $this->response->item($this->user(),new UserTransformer());
+        return $this->response->item(auth('api')->user(),new UserTransformer());
     }
     public function destroy()
     {

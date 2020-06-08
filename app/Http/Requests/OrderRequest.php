@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
+use App\Models\CouponCode;
 use App\Models\Product;
 use Illuminate\Validation\Rule;
 
@@ -44,6 +45,14 @@ class OrderRequest extends FormRequest
                 },
             ],
             'items.*.sample_quantity' => ['required', 'integer', 'min:1'],
+            'coupon_code' => [
+                function($attribute, $value, $fail) {
+                    $coupon = CouponCode::where('code', $value)->first();
+                    if (!$coupon) {
+                        return $fail('优惠券不存在');
+                    }
+                }
+            ]
         ];
     }
 }
