@@ -5,18 +5,23 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Requests\AuthRequest;
 use App\Transformers\UserTransformer;
 use App\User;
+use Illuminate\Auth\AuthenticationException;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 class AuthController extends Controller
 {
-    // 一个是登陆
-    public function store(AuthRequest $request)
+    public function test()
     {
         $user = User::find(1);
         $token = Auth::guard('api')->fromUser($user);
         return $this->respondWithToken($token)->setStatusCode(201);
-
+        
+    }
+    // 一个是登陆
+    public function store(AuthRequest $request)
+    {
         $code = $request->code;
         // 小程序
         try {
@@ -42,7 +47,7 @@ class AuthController extends Controller
     // 个人中心
     public function meShow()
     {
-        return $this->response->item(auth('api')->user(),new UserTransformer());
+        return $this->response->item($this->user(),new UserTransformer());
     }
     public function destroy()
     {

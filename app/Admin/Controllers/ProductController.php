@@ -28,7 +28,7 @@ class ProductController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Product());
-
+        $grid->model()->where('id','>','1000')->orderBy('id','desc');
         $grid->column('id', __('Id'))->sortable();
         $grid->column('image_url', __('Image url'))->image(config('url').'/storage/', 30, 30);
         $grid->column('type_id', __('Type id'))->display(function ($type_id) {
