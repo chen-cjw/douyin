@@ -27,6 +27,6 @@ Route::group([
 //    $router->get('coupon_codes/{id}/edit', 'CouponCodesController@edit');
 //    $router->put('coupon_codes/{id}', 'CouponCodesController@update');
 //    $router->delete('coupon_codes/{id}', 'CouponCodesController@destroy');
-    $router->resource('coupon_codes', 'OrdersController');   // 优惠券
+    $router->resource('coupon_codes', 'CouponCodesController');   // 优惠券
 
 });
